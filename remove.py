@@ -5,7 +5,8 @@ import re
 import os
 
 print("something")
-imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=10000)
+imapclient.SocketTimeout(connect=500, read=500)
+imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True)
 print("after")
 # imapObj.login(os.environ.get['USERNAME_KEY'], os.environ.get['PASSWORD_KEY'])
 #
