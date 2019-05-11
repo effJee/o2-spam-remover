@@ -5,8 +5,8 @@ import re
 from os import environ
 
 print("something")
-s = imapclient.SocketTimeout(connect=500, read=500)
-imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=s)
+# s = imapclient.SocketTimeout(connect=500, read=500)
+imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=5)
 print("after")
 imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
 #
