@@ -2,13 +2,13 @@ import imapclient
 import pprint
 import email
 import re
-import os
+from os import environ
 
 print("something")
 s = imapclient.SocketTimeout(connect=500, read=500)
 imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=s)
 print("after")
-imapObj.login(os.environ.get['USERNAME_KEY'], os.environ.get['PASSWORD_KEY'])
+imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
 #
 # # pprint.pprint(imapObj.list_folders())
 # imapObj.select_folder('INBOX', readonly=False)
