@@ -103,5 +103,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# Ignore 'config.py' file
-config.py
+# Ignore 'rconfig.py' file
+rconfig.py
