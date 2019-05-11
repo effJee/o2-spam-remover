@@ -13,11 +13,11 @@ imapObj.select_folder('INBOX', readonly=False)
 # print(UIDs)
 
 messages = imapObj.search('UNSEEN')
-adressReg = re.compile(r"(<o2@o2.pl>|<no-response@o2.pl>)")
+adresReg = re.compile(r"(<o2@o2.pl>|<no-response@o2.pl>)")
 
 for uid, message_data in imapObj.fetch(messages, 'RFC822').items():
     email_message = email.message_from_bytes(message_data[b'RFC822'])
-    if re.search(adressReg, email_message.get('From')) is not None:
+    if re.search(adresReg, email_message.get('From')) is not None:
         imapObj.delete_messages(uid)
 
 imapObj.logout()
