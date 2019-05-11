@@ -5,7 +5,7 @@ import re
 import os
 
 print("something")
-imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True)
+imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=None)
 # imapObj.login(os.environ.get['USERNAME_KEY'], os.environ.get['PASSWORD_KEY'])
 #
 # # pprint.pprint(imapObj.list_folders())
