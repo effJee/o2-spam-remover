@@ -1,11 +1,11 @@
 import imapclient
-import config
 import pprint
 import email
 import re
+import os
 
 imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True)
-imapObj.login(config.username, config.password)
+imapObj.login(os.environ['USERNAME_KEY'], os.environ['PASSWORD_KEY'])
 
 # pprint.pprint(imapObj.list_folders())
 imapObj.select_folder('INBOX', readonly=False)
