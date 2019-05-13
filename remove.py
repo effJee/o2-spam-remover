@@ -10,7 +10,7 @@ connected = False
 while not connected:
     try:
         print("Connecting...")
-        imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=15)
+        imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=45)
         print("Connected")
         imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
         print("Logged in")
