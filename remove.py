@@ -1,16 +1,22 @@
+from os import environ
 import imapclient
 import pprint
+import socket
 import email
 import re
-from os import environ
 
+connected = False
 
-print("Connecting...")
-# s = imapclient.SocketTimeout(connect=500, read=500)
-imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=5)
-print("Connected")
-imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
-print("Logged in")
+while not connected:
+    try:
+        print("Connecting...")
+        imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=15)
+        print("Connected")
+        imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
+        print("Logged in")
+        connected = True
+    except socket.timeout:
+        print("Timed out")
 
 # pprint.pprint(imapObj.list_folders())
 imapObj.select_folder('INBOX', readonly=False)
