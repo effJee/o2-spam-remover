@@ -6,6 +6,7 @@ import email
 import re
 
 connected = False
+timeouts = 1
 
 while not connected:
     try:
@@ -16,7 +17,7 @@ while not connected:
         print("Logged in")
         connected = True
     except socket.timeout:
-        print("Timed out")
+        print("{}. Timed out".format(timeouts))
 
 # pprint.pprint(imapObj.list_folders())
 imapObj.select_folder('INBOX', readonly=False)
