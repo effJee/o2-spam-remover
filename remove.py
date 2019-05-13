@@ -4,11 +4,13 @@ import email
 import re
 from os import environ
 
-print("something")
+
+print("Connecting...")
 # s = imapclient.SocketTimeout(connect=500, read=500)
 imapObj = imapclient.IMAPClient('poczta.o2.pl', ssl=True, timeout=5)
-print("after")
+print("Connected")
 imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
+print("Logged in")
 
 # pprint.pprint(imapObj.list_folders())
 imapObj.select_folder('INBOX', readonly=False)
