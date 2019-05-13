@@ -18,6 +18,7 @@ while not connected:
         connected = True
     except socket.timeout:
         print("{}. Timed out".format(timeouts))
+        timeouts += 1
 
 # pprint.pprint(imapObj.list_folders())
 imapObj.select_folder('INBOX', readonly=False)
