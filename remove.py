@@ -30,5 +30,6 @@ for uid, message_data in imapObj.fetch(messages, 'RFC822').items():
     email_message = email.message_from_bytes(message_data[b'RFC822'])
     if re.search(adresReg, email_message.get('From')) is not None:
         imapObj.delete_messages(uid)
+        print("deleted")
 
 imapObj.logout()
