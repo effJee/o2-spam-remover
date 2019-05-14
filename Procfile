@@ -1,1 +1,1 @@
-web: python remove.py
+worker: python remove.py
