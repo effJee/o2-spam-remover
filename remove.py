@@ -11,7 +11,7 @@ timeouts = 1
 while not connected:
     try:
         print("Connecting...")
-        imapObj = imapclient.IMAPClient('poczta.o2.pl',port=993, ssl=True, timeout=60)
+        imapObj = imapclient.IMAPClient('poczta.o2.pl',port=993, ssl=True, timeout=30)
         print("Connected")
         imapObj.login(environ.get('USERNAME_KEY'), environ.get('PASSWORD_KEY'))
         print("Logged in")
